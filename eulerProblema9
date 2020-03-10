@@ -1,0 +1,28 @@
+package problema9;
+
+public class eulerProblema9 {
+
+        public static void main(String[] args) {
+            System.out.println(new Problem9().run());
+	      }
+        
+        //a+b+c=perimetro então perimetro = 1000
+	      private static final int per = 1000;	
+        
+        //Loop de 'a'(1 até 1000) e 'b'(a+1 até 1000)
+        //'b' = a+1 pois 'a' sempre é menor que o valor de 'b' (a < b < c)
+        //infere-se o valor de 'c' verificando se 'c' = 1000 que é o perimetro - a - b
+        //temos então a confirmação do triangulo retangulo, e temos o valor do 
+        //produto 'abc' = 31875000 em que 'a' = 200, 'b' = 375 e 'c' = 425
+	      public String run() {
+            for (int a = 1; a < per; a++) { 
+		          for (int b = a + 1; b < per; b++) {
+                  int c = per - a - b;
+			              if (a * a + b * b == c * c) {                        
+                       return Integer.toString(a * b * c);
+                  }
+		          }
+          }
+	    throw new AssertionError("Erro");
+    }	
+}
